@@ -18,4 +18,4 @@ def runCpp(problem):
         else:
           print("Failed :(")
 
-runCpp(2)
+runCpp(3)
