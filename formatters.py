@@ -16,5 +16,5 @@ def formatInFile(problem):
   for file, i in zip(files, range(1, 4)):
     with open(files[file], 'r') as f:
       lines = f.readlines()
-    with open(f'tmp/tmp{i}.txt', 'w') as f:
+    with open(f'tmp/tmp{i}-in.txt', 'w') as f:
       f.writelines(lines)
