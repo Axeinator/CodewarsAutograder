@@ -20,5 +20,3 @@ def runCpp(problem):
         else:
           print("Failed :(")
   os.system(f"rm tmp/prob{problem}.out")
-
-runCpp(3)

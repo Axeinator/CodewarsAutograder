@@ -13,5 +13,4 @@ def runJava(problem):
         else:
           print("Failed :(")
   os.system(f"rm prob{problem}.class")
-
-runJava(1)
+  
