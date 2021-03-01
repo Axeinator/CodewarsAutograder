@@ -10,7 +10,7 @@ def runJava(problem):
   for i in range(1, 4):
         printCaseHeader(i)
         os.system(f"java prob{problem} < tmp/tmp{i}-in.txt > tmp/your-prob{problem}-{i}-out.txt")
-        code = os.system(f'diff -B -w --color tmp/your-prob{problem}-{i}-out.txt student_datasets/prob{problem}-{i}-out.txt')
+        code = os.system(f'diff -B -w tmp/your-prob{problem}-{i}-out.txt student_datasets/prob{problem}-{i}-out.txt')
         if code == 0: # files identical
           print("Suceeded!")
         else:
