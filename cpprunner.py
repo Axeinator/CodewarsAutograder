@@ -18,5 +18,5 @@ def runCpp(problem):
         if code == 0: # files identical
           print("Suceeded!")
         else:
-          print("Failed :(")
+          print(f"Case {i} Failed :(")
   os.system(f"rm tmp/prob{problem}.out")

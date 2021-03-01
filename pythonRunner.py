@@ -10,5 +10,5 @@ def runPython(problem):
         if code == 0: # files identical
           print("Suceeded!")
         else:
-          print("Failed :(")
+          print(f"Case {i} Failed :(")
 

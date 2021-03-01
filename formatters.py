@@ -8,12 +8,14 @@ def zeroFill(problem):
 def formatInFile(problem):
   problem = zeroFill(problem)
   files = {}
-
+  
   for i in range(1, 4):
     file = glob.glob(f"./student_datasets/prob{problem}-{i}-in.txt")
     files[i] = file[0]  
   
   for file, i in zip(files, range(1, 4)):
+    # in case input file formatting is required, add here, right now
+    # it is just rewriting the input into a temp file
     with open(files[file], 'r') as f:
       lines = f.readlines()
     with open(f'tmp/tmp{i}-in.txt', 'w') as f:
