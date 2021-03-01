@@ -1,6 +1,6 @@
 import os
 from formatters import zeroFill, formatInFile
-from helpers import printCaseHeader
+from helpers import printCaseHeader, differ
 
 # looks like C++ didn't have the
 # same formatting problems as python
@@ -18,8 +18,8 @@ def runCpp(problem):
   for i in range(1, 4):
         printCaseHeader(i)
         os.system(f"./tmp/prob{problem}.out < tmp/tmp{i}-in.txt > tmp/your-prob{problem}-{i}-out.txt")
-        code = os.system(f'diff -B -w tmp/your-prob{problem}-{i}-out.txt student_datasets/prob{problem}-{i}-out.txt')
-        if code == 0: # files identical
+        filesDiffer = differ(f'tmp/your-prob{problem}-{i}-out.txt', f'student_datasets/prob{problem}-{i}-out.txt')
+        if not filesDiffer: # files identical
           print("Suceeded!")
         else:
           print(f"Case {i} Failed :(")

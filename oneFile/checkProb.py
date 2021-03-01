@@ -26,14 +26,23 @@ def printCaseHeader(caseNum):
   print("====================")
   print(f"Case {caseNum}")
 
+def differ(file1, file2):
+  # note that this means you must print new lines, as
+  # to simplify the verification newlines characters are removed
+  with open(file1, 'r') as f:
+    f1 = f.read().replace('\n', '')
+  with open(file2, 'r') as f:
+    f2 = f.read().replace('\n', '')
+  return f1 != f2
+  
 def runPython(problem):
       problem = zeroFill(problem)
       formatInFile(problem)
       for i in range(1, 4):
         printCaseHeader(i)
         os.system(f"python3 prob{problem}.py < tmp/tmp{i}-in.txt > tmp/your-prob{problem}-{i}-out.txt")
-        code = os.system(f'diff -B -w tmp/your-prob{problem}-{i}-out.txt student_datasets/prob{problem}-{i}-out.txt')
-        if code == 0: # files identical
+        filesDiffer = differ(f'tmp/your-prob{problem}-{i}-out.txt', f'student_datasets/prob{problem}-{i}-out.txt')
+        if not filesDiffer: # files identical
           print("Suceeded!")
         else:
           print(f"Case {i} Failed :(")
@@ -46,8 +55,8 @@ def runJava(problem):
   for i in range(1, 4):
         printCaseHeader(i)
         os.system(f"java prob{problem} < tmp/tmp{i}-in.txt > tmp/your-prob{problem}-{i}-out.txt")
-        code = os.system(f'diff -B -w tmp/your-prob{problem}-{i}-out.txt student_datasets/prob{problem}-{i}-out.txt')
-        if code == 0: # files identical
+        filesDiffer = differ(f'tmp/your-prob{problem}-{i}-out.txt', f'student_datasets/prob{problem}-{i}-out.txt')
+        if not filesDiffer: # files identical
           print("Suceeded!")
         else:
           print(f"Case {i} Failed :(")
@@ -62,8 +71,8 @@ def runCpp(problem):
   for i in range(1, 4):
         printCaseHeader(i)
         os.system(f"./tmp/prob{problem}.out < tmp/tmp{i}-in.txt > tmp/your-prob{problem}-{i}-out.txt")
-        code = os.system(f'diff -B -w tmp/your-prob{problem}-{i}-out.txt student_datasets/prob{problem}-{i}-out.txt')
-        if code == 0: # files identical
+        filesDiffer = differ(f'tmp/your-prob{problem}-{i}-out.txt', f'student_datasets/prob{problem}-{i}-out.txt')
+        if not filesDiffer: # files identical
           print("Suceeded!")
         else:
           print(f"Case {i} Failed :(")
