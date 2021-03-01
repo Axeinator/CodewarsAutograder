@@ -13,5 +13,5 @@ if args.language == 'python':
   runPython(args.problem)
 elif args.language == 'java':
   runJava(args.problem)
-elif args.language == 'c++':
+elif args.language == 'c++' or args.language == 'cpp':
   runCpp(args.problem)
