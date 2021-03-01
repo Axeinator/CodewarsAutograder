@@ -9,9 +9,11 @@ parser.add_argument("problem", type=int, help='number of problem to be checked')
 
 args = parser.parse_args()
 
-if args.language == 'python':
+if args.language == 'python3':
   runPython(args.problem)
 elif args.language == 'java':
   runJava(args.problem)
 elif args.language == 'c++' or args.language == 'cpp':
   runCpp(args.problem)
+else:
+  print("Invalid language. Run -h for help on parameters.")

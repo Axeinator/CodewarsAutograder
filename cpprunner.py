@@ -13,6 +13,7 @@ def runCpp(problem):
   problem = zeroFill(problem)
   formatInFile(problem)
   print("Compiling, please wait")
+  # compile step (change the next line if you are using clang or your g++ invocation is different)
   os.system(f"g++ -o tmp/prob{problem}.out prob{problem}.cpp")
   for i in range(1, 4):
         printCaseHeader(i)
